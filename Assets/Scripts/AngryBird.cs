@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 /**
  * This component lets the player pull the ball and release it.
  */
-public class AngryBird: MonoBehaviour {
+public class AngryBird: MonoBehaviour
+{
     [SerializeField] Rigidbody2D hook = null;
     [SerializeField] float releaseTime = .15f;
     [SerializeField] float maxDragDistance = 2f;
@@ -21,7 +22,6 @@ public class AngryBird: MonoBehaviour {
     private Rigidbody2D rb;
 
     private GameObject[] pigs;
-
     private void Start() {
         Debug.Log("In bird start");
 
@@ -31,8 +31,10 @@ public class AngryBird: MonoBehaviour {
         pigs = GameObject.FindGameObjectsWithTag("Pig");
     }
 
-    void Update() {
-        if (isMousePressed) {
+    void Update()
+    {
+        if (isMousePressed)
+        {
             Vector3 screenPos = Input.mousePosition;
             //screenPos.z = Camera.main.transform.position.z;
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(screenPos);
@@ -42,19 +44,20 @@ public class AngryBird: MonoBehaviour {
                 rb.position = mousePos;
         }
     }
-
-    private void OnMouseDown() {
+    private void OnMouseDown()
+    {
         isMousePressed = true;
         rb.bodyType = RigidbodyType2D.Kinematic;
     }
-
-    private void OnMouseUp() {
+    private void OnMouseUp()
+    {
         isMousePressed = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
         StartCoroutine(ReleaseBall());
     }
 
-    IEnumerator ReleaseBall() {
+    IEnumerator ReleaseBall()
+    {
         // Wait a short time, to let the physics engine operate the spring and give some initial speed to the ball.
         yield return new WaitForSeconds(releaseTime); 
         GetComponent<SpringJoint2D>().enabled = false;
@@ -70,59 +73,5 @@ public class AngryBird: MonoBehaviour {
             GameManager.instance.LoadNextScene();
         }
     }
-
-    //private void OnTriggerEnter2D(Collider2D other) {
-    //     Debug.Log("in OnTriggerEnter2D 1");
-
-    //    if (other.tag == "Pig") {
-    //        Debug.Log("in OnTriggerEnter2D 2");
-    //    }
-
-    //     if (other.tag == "boundery") {
-    //         if (!isScore)
-    //             SetScore(0);
-    //         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restart game
-    //     } else if (other.tag == "Score") {
-    //         if (!isScore) {
-    //             isScore = true;
-    //             SetScore(score + 1);
-    //         }
-    //     }
-     //}
-
-    // void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     Debug.Log("In onCollisionEnter2D");
-
-    //     if (other.gameObject.CompareTag("Pig"))
-    //     {
-    //         SetScore(score+1);
-    //     }
-
-    // }
-
-    // public void incScore()
-    // {
-    //     score++;
-    // }
-
-    // private void SetScore(int newScore) {
-    //     score = newScore;
-    //     //PlayerPrefs.SetInt("BasketballScore", score);
-    //     print("Score: " + score);
-    // }
-
-    // void OnGUI() {
-    //     GUIStyle style = new GUIStyle(GUI.skin.GetStyle("label"));
-    //     style.fontSize = 40;
-    //     style.normal.textColor = Color.black;
-    //     GUI.Label(new Rect(70, 0, 400, 200), "Score: " + score, style);
-
-    //     if (score == pigs.Length)
-    //     {
-    //         style.fontSize = 40;
-    //         style.normal.textColor = Color.yellow;
-    //         GUI.Label(new Rect(400, 0, 500, 200), "Great!", style);
-    //     }
-    // }
-}
+   }
+   

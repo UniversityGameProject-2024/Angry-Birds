@@ -25,7 +25,7 @@ public class CameraControl : MonoBehaviour
         // Wait a short time, to let the physics engine operate the spring and give some initial speed to the ball.
         while (counterZoomIn < 40)
         {
-            yield return new WaitForSeconds(0.05f); 
+            yield return new WaitForSeconds(0.05f);
             offset.x -= 0.5f;
             counterZoomIn++;
         }

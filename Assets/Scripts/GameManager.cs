@@ -42,7 +42,8 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void SetScore(int newScore) {
+    private void SetScore(int newScore)
+    {
         score = newScore;
         //PlayerPrefs.SetInt("BasketballScore", score);
         //print("Score: " + score);
@@ -60,25 +61,25 @@ public class GameManager : MonoBehaviour
 
     public void RestartScene()
     {
-          SetScore(0);
-          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SetScore(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 
     public void LoadNextScene()
     {
-          int totalScenes = SceneManager.sceneCountInBuildSettings;  
-          int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-          if (currentSceneIndex < totalScenes - 1)  
-          {
+        int totalScenes = SceneManager.sceneCountInBuildSettings;  
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex < totalScenes - 1)
+        {
             SetScore(0);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restart game
             SceneManager.LoadScene(currentSceneIndex+1);
           }
-
     }
 
-    void OnGUI() {
+    void OnGUI()
+    {
         GUIStyle style = new GUIStyle(GUI.skin.GetStyle("label"));
         style.fontSize = 40;
         style.normal.textColor = Color.black;
@@ -100,5 +101,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
 }
