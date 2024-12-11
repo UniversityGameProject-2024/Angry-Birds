@@ -21,7 +21,8 @@ public class CameraControl : MonoBehaviour
     }
 
 
-    IEnumerator CameraZoomInAtStart() {
+    IEnumerator CameraZoomInAtStart()
+    {
         // Wait a short time, to let the physics engine operate the spring and give some initial speed to the ball.
         while (counterZoomIn < 40)
         {

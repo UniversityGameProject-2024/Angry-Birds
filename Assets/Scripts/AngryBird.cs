@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /**
  * This component lets the player pull the ball and release it.
  */
-public class AngryBird: MonoBehaviour
+public class AngryBird:MonoBehaviour
 {
     [SerializeField] Rigidbody2D hook = null;
     [SerializeField] float releaseTime = .15f;
@@ -22,7 +22,8 @@ public class AngryBird: MonoBehaviour
     private Rigidbody2D rb;
 
     private GameObject[] pigs;
-    private void Start() {
+    private void Start()
+    {
         Debug.Log("In bird start");
 
         rb = GetComponent<Rigidbody2D>();
@@ -58,7 +59,7 @@ public class AngryBird: MonoBehaviour
 
     IEnumerator ReleaseBall()
     {
-        // Wait a short time, to let the physics engine operate the spring and give some initial speed to the ball.
+        // Wait a short time, to let the physics engine operate the spring and give some initial speed to the ball
         yield return new WaitForSeconds(releaseTime); 
         GetComponent<SpringJoint2D>().enabled = false;
         yield return new WaitForSeconds(7);  // Waits for bird to fisish hiting the pigs
@@ -73,5 +74,4 @@ public class AngryBird: MonoBehaviour
             GameManager.instance.LoadNextScene();
         }
     }
-   }
-   
+}

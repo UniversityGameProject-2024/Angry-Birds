@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
         //score = PlayerPrefs.GetInt("score");
         score = 1;  // First level starts with score = 1 to be easier
         pigs = GameObject.FindGameObjectsWithTag("Pig");
-        
     }
 
     private void SetScore(int newScore)
@@ -68,14 +67,13 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        int totalScenes = SceneManager.sceneCountInBuildSettings;  
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (currentSceneIndex < totalScenes - 1)
         {
             SetScore(0);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // restart game
             SceneManager.LoadScene(currentSceneIndex+1);
-          }
+        }
     }
 
     void OnGUI()
