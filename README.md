@@ -9,5 +9,5 @@
 [קישור לitch.io](https://yakovelkobi.itch.io/angry-birds)
 
 ## חברי צוות
-יעקב אלקובי
+יעקב אלקובי <br>
 ניקיטה אנוסוב
