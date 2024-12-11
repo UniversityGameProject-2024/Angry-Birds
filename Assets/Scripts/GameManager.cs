@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         if (currentSceneIndex < totalScenes - 1)
         {
             SetScore(0);
-            SceneManager.LoadScene(currentSceneIndex+1);
+            SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }
 
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
             style.normal.textColor = Color.yellow;
             int totalScenes = SceneManager.sceneCountInBuildSettings;
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            if (currentSceneIndex < totalScenes-1)
+            if (currentSceneIndex < totalScenes - 1)
             {
                 GUI.Label(new Rect(400, 0, 500, 200), "Next Level!", style);
             }

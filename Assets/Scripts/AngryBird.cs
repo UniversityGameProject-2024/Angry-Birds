@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 /**
 * This component lets the player pull the ball and release it.
 */
-public class AngryBird: MonoBehaviour
+public class AngryBird : MonoBehaviour
 {
     [SerializeField] Rigidbody2D hook = null;
     [SerializeField] float releaseTime = .15f;
