@@ -63,8 +63,6 @@ public class GameManager : MonoBehaviour
         SetScore(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-
     public void LoadNextScene()
     {
         int totalScenes = SceneManager.sceneCountInBuildSettings;
@@ -87,7 +85,7 @@ public class GameManager : MonoBehaviour
         {
             style.fontSize = 40;
             style.normal.textColor = Color.yellow;
-            int totalScenes = SceneManager.sceneCountInBuildSettings;  
+            int totalScenes = SceneManager.sceneCountInBuildSettings;
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             if (currentSceneIndex < totalScenes-1)
             {
